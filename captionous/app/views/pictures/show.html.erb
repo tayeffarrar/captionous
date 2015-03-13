@@ -1,6 +1,17 @@
 <h1>LOGIN SUCCESS</h1>
 
-<%= form_for @query, as: :session, url: session_url %>
-  <%= f.text_field :, placeholder: "username" %>
-  <br/>
-  <% end %>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/app/assets/javascripts/searches.js"></script>	
+</head>
+
+<body>
+	<h1>Search for Keyword</h1>
+
+  <form class='search'>
+		<input id="instagram-keyword" type="text" placeholder="Enter Keyword" name="instagram[tags]">
+		<input class="button orange" type="submit" value="Find It!">
+	</form>
+
+</body>
