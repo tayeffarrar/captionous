@@ -14,4 +14,10 @@
 		<input class="button orange" type="submit" value="Find It!">
 	</form>
 
+	<li>
+    <%= button_to "Log Out", session_url, method: "delete" %>
+  </li>
+	<li>
+	  <%= link_to "Change Password", edit_users_url(@current_user) %>
+	</li>
 </body>
