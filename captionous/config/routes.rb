@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/current', to: 'users#current'
 
+  resource :users
   resource :pictures
   resource :session, only: [:new, :create, :destroy]
 end
