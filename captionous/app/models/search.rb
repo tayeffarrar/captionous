@@ -5,8 +5,9 @@ class Search < ActiveRecord::Base
 
 	def fetch_results
 		results = instagram.tag_recent_media(query)
+		binding.pry
 		results.each do |result|
-			self.picturess << Picture.new {
+			self.pictures << Picture.new {
 				url: result.images.standard_resolution
 			}
 		end
@@ -15,7 +16,10 @@ class Search < ActiveRecord::Base
 	private
 
 	def instagram
-		Rails.config.instagram_client
+		Instagram.configure do |config|
+			config.client_id = Rails.application.secrets.instagram_client_id
+			config.client_secret = Rails.application.secrets.instagram_client_secret
+		end
 	end
 	
 end

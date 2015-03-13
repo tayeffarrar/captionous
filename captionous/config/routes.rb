@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pictures#list'
+  root 'sessions#new'
   get '/list', to: 'pictures#list'
 
   resources :users, except: [:index, :show] do
