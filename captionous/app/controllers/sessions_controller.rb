@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(session_params[:password])
   		login!(@user)
 
-  		render html: "<h1>you signed in, buddy!</h1>"
+  		redirect_to pictures_show_url
   	else
-  		redirect_to new_session_url #add error message?
+  		redirect_to new_session_url, alert: "Username and/or password incorrect" #add error message?
   	end
   end
 
