@@ -15,12 +15,14 @@ $(function(){
 	})
 
 	$('#search').on('submit', function(e){
-	console.log('worked!')
 		e.preventDefault();
-
+		
 		values = {
-			keyword: $('#search-picture-keyword').value
-		}
+
+		keyword: document.getElementById("search-picture-keyword").value
+	}
+
+	console.log('this worked!')
 
 		$(this).children('input').not('input[type=submit]').val('');
 

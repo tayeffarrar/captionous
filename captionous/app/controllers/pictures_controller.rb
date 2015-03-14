@@ -10,8 +10,9 @@ def create
 	client = Instagram.client 
 	# client.media_popular
 	# client.tag_search('')
-	@user_input = client.tag_recent_media('highway')[0].images.standard_resolution.url 
-	# Pry.start(binding)
+
+	@user_input = client.tag_recent_media(params[:keyword])[0].images.standard_resolution.url 
+	Pry.start(binding)
 
 
 	respond_to do |format|
@@ -19,10 +20,6 @@ def create
 	end
 
 end	
-
-
-
-
 
 	# def instagram
 	# 	Instagram.configure do |config|
