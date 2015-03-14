@@ -1,23 +1,25 @@
 console.log("everything is ok at pictures.js");
 
+var keyword;
+
 $(function(){
 	$.ajax({
 		url: '/pictures',
 		method: 'GET',
-		data: @testtag,
 		dataType: 'json',
-		success: function(data){
+		success: function(data){ 
 			data.forEach(function(pictures){
 				renderPicture(picture);
 			})
 		}
 	})
-	$('#search-picture-keyword').on('submit', function(e){
+
+	$('#search').on('submit', function(e){
+	console.log('worked!')
 		e.preventDefault();
 
 		values = {
-			keyword:
-				$('#search-picture-keyword').value
+			keyword: $('#search-picture-keyword').value
 		}
 
 		$(this).children('input').not('input[type=submit]').val('');
