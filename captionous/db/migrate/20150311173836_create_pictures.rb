@@ -3,7 +3,6 @@ class CreatePictures < ActiveRecord::Migration
     create_table :pictures do |t|
     	t.integer :picture_id
     	t.integer :contributor_id
-    	t.string :location
 
       t.timestamps null: false
     end
