@@ -11,7 +11,7 @@ def create
 	# client.media_popular
 	# client.tag_search('')
 
-	@user_input = client.tag_recent_media(params[:keyword])[0].images.standard_resolution.url 
+	@results = client.tag_recent_media(params[:keyword])#[0].images.standard_resolution.url 
 	Pry.start(binding)
 
 
