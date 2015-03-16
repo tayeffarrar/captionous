@@ -3,14 +3,15 @@ console.log("everything is ok at pictures.js");
 var keyword;
 
 $(function(){
+	// prepopulate defaults
 	$.ajax({
 		url: '/pictures',
 		method: 'GET',
 		dataType: 'json',
 		success: renderResults 
 	})
-})
 
+	// setup search population
 	$('#search').on('submit', function(e){
 		e.preventDefault();
 		
@@ -30,22 +31,23 @@ $(function(){
 			success: renderResults
 		})
 	})
+});
 
 function renderPicture(picture){
 	console.log(picture)
-	$link = $('<a></a>').attr("href", picture.url);
-											.attr("target", "_blank");
-		$img = $('<img>').attr("src", picture.url);
-		return $link.append($img);
+	// $link = $('<a></a>').attr("href", picture.url)
+	// 										.attr("target", "_blank");
+	$img = $('<img>').attr("src", picture.url);
+	return $img;
 }
 
-	function renderResults() {
-		var $results = $("#results")
-		$results.empty()
-		pictures.forEach(function(picture){			
-			$results.append(renderPicture(picture));	
-		});
-	};
+function renderResults(pictures) {
+	var $results = $("#results")
+	$results.empty()
+	pictures.forEach(function(picture){			
+		$results.append(renderPicture(picture));	
+	});
+};
 
 
 
