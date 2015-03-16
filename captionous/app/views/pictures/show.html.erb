@@ -1,23 +1,133 @@
-<h1>LOGIN SUCCESS</h1>
-
-<head>
-  <meta charset="UTF-8">
-</head>
-
 <body>
-	<h1>Search for Picture</h1>
 
-  <form id='search'>
-		<input id="search-picture-keyword" type="text" placeholder="Enter Keyword" name="picture[keyword]">
-		<input class="button orange" type="submit" value="Find It!">
-	</form>
+  <!-- Navbar -->
 
-	<div id="results"></div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
 
-	<li>
-    <%= button_to "Log Out", session_url, method: "delete" %>
-  </li>
-	<li>
-	  <%= link_to "Change Password", edit_users_url(@current_user) %>
-	</li>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+
+     <a class="main-logo pull-left" href="#" alt="CAPTIONOUS"><img src="http://www.atleurasia.com/in/wp-content/uploads/2015/03/main-logo2.png"></a>
+     <div class="collapse navbar-collapse">
+
+       <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">HOME</a></li>
+          <li><a href="#">REGISTER</a></li>
+          <li><a href="#">SIGN UP</a></li>
+          <li>
+            <%= button_to "LOG OUT", session_url, method: "delete" %>
+          </li>
+          <li>
+            <%= link_to "PASSWORD", edit_users_url(@current_user) %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- End navbar -->
+
+  <!-- Jumbotron -->
+  <div id="myCarousel" class="jumbotron">
+    <div class="container">
+      <div class="carousel-inner">
+        <div class="item active">
+          <h1>YOUR WORLD NEEDS CONTEXT.</h1>
+          <!-- <p class="lead">Search bar goes below.</p>
+          <p>
+            <a class="btn btn-default btn-lg" href="#">Something something</a>
+            <a class="btn btn-default btn-lg" data-toggle="modal" href="#textModal" >Yes, yes, I'd like some more</a>
+          </p> -->
+        </div>
+        <!-- Search form -->
+        <!-- <div class="searchbar">
+          <form id='search'>
+            <input id="search-picture-keyword" type="text" placeholder="ENTER KEYWORD" name="picture[keyword]">
+            <i class="fa fa-search fa-3x"></i>
+            <input class="button orange" type="submit" value="Find It!">
+          </form>
+        </div> -->
+
+        <div class="searchbar">
+
+          <form id="search">
+            <input class="search-picture-keyword" type="text" placeholder="ENTER KEYWORD" name="picture[keyword]">
+            <button class="btn btn-submit" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- End search form -->
+      </div>
+    </div>
+  </div>
+
+  <!-- End jumbotron -->
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="textModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Awesome sign in form here</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only" for="mobilePhone">Mobile Phone</label>
+              <input type="tel" class="form-control" id="mobilePhone" placeholder="Mobile Phone">
+            </div>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Send me link</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End modal -->
+
+
+  <div class="container">
+
+    <div="row">
+    <div class="col-xs-6">
+      <i class="fa fa-instagram fa-5x"></i>
+      <h3>Instagram</h3>
+      <div id="results"></div>
+    </div>
+      <div class="col-xs-6">
+        <i class="fa fa-twitter fa-5x"></i>
+        <h3>Tweets</h3>
+        <p>This is where the Tweets go.</p>
+      </div>
+
+  </div>
+
+<!-- <%= yield %> -->
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p>&copy; 2015 Captionous — by VelocirAPPtor, Inc. All rights reserved.</p>
+    </div>
+  </div>
+
 </body>
