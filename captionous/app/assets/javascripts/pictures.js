@@ -7,22 +7,18 @@ $(function(){
 		url: '/pictures',
 		method: 'GET',
 		dataType: 'json',
-		success: function(data){ 
-			data.forEach(function(pictures){
-				renderPicture(picture);
-			})
-		}
+		success: renderResults 
 	})
+})
 
 	$('#search').on('submit', function(e){
 		e.preventDefault();
 		
 		values = {
+			keyword: document.getElementById("search-picture-keyword").value
+		}
 
-		keyword: document.getElementById("search-picture-keyword").value
-	}
-
-	console.log('this worked!')
+		console.log('this worked!')
 
 		$(this).children('input').not('input[type=submit]').val('');
 
@@ -31,9 +27,28 @@ $(function(){
 			method: 'POST',
 			data: values,
 			dataType: 'json',
-			success: function(picture){
-				renderPicture(picture);
-			}
+			success: renderResults
 		})
 	})
-})
+
+function renderPicture(picture){
+	console.log(picture)
+	$link = $('<a></a>').attr("href", picture.url);
+											.attr("target", "_blank");
+		$img = $('<img>').attr("src", picture.url);
+		return $link.append($img);
+}
+
+	function renderResults() {
+		var $results = $("#results")
+		$results.empty()
+		pictures.forEach(function(picture){			
+			$results.append(renderPicture(picture));	
+		});
+	};
+
+
+
+
+
+

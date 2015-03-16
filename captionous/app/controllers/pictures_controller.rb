@@ -21,7 +21,6 @@ class PicturesController < ApplicationController
 			)
 		end
 
-
 		respond_to do |format|
 			format.json {render json: @pictures_array }
 		end
