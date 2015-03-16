@@ -20,9 +20,14 @@ class PicturesController < ApplicationController
 				:contributor => result.user[:username]
 			)
 		end
+		@data_array = []
+
+		@pictures_array.map do |pic|
+			@data_array << {url: pic.url}
+		end
 
 		respond_to do |format|
-			format.json {render json: @pictures_array }
+			format.json {render json: @data_array}
 		end
 
 	end	
