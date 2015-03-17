@@ -11,6 +11,5 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 
-production:
-  instagram_client_id: fecacc3f67b04bf0ab54ed89e9f802a9
-  instagram_client_secret: 5fa2389da4d244b7834fba4c1c0f1e73
+instagram_client_id: fecacc3f67b04bf0ab54ed89e9f802a9
+instagram_client_secret: 5fa2389da4d244b7834fba4c1c0f1e73

@@ -2,8 +2,8 @@ class PicturesController < ApplicationController
 
 	def configure_instagram
 		Instagram.configure do |config|
-			config.client_id = ENV["instagram_client_id"]
-			config.client_secret = ENV["instagram_client_secret"]
+			config.client_id = ENV["_FIGARO_instagram_client_id"]
+			config.client_secret = ENV["_FIGARO_instagram_client_secret"]
 			@instagram_client = Instagram.client
 		end
 	end
@@ -52,7 +52,6 @@ class PicturesController < ApplicationController
 	def show_instagram
 		self.generate_default
 		self.configure_instagram
-
 
 		@instagram_results = @instagram_client.tag_recent_media(@default)
 		self.fetch_instagram_results
