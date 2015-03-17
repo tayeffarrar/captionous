@@ -11,15 +11,15 @@
        <span class="icon-bar"></span>
      </button>
 
-     <a class="main-logo pull-left" href="#" alt="CAPTIONOUS"><img src="http://www.atleurasia.com/in/wp-content/uploads/2015/03/main-logo2.png"></a>
+     <a class="main-logo pull-left" href="#" alt="CAPTIONOUS"><img src="http://www.ninebranches.com/nb/wp-content/uploads/2015/03/main-logo.png"></a>
      <div class="collapse navbar-collapse">
 
        <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">HOME</a></li>
-          <li><a href="#">REGISTER</a></li>
-          <li><a href="#">SIGN UP</a></li>
+          <!-- <li><a href="#">REGISTER</a></li>
+          <li><a href="#">SIGN UP</a></li> -->
           <li>
-            <%= button_to "LOG OUT", session_url, method: "delete" %>
+            <%= link_to "LOG OUT", session_url, method: "delete" %>
           </li>
           <li>
             <%= link_to "PASSWORD", edit_users_url(@current_user) %>
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="carousel-inner">
         <div class="item active">
-          <h1>YOUR WORLD NEEDS CONTEXT.</h1>
+          <h1>YOUR WORLD IN CONTEXT.</h1>
           <!-- <p class="lead">Search bar goes below.</p>
           <p>
             <a class="btn btn-default btn-lg" href="#">Something something</a>
@@ -80,13 +80,13 @@
 
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Awesome sign in form here</h4>
+          <h4 class="modal-title">KEEP GETTING THE BIG PICTURE</h4>
         </div>
         <div class="modal-body">
           <form class="form-inline">
             <div class="form-group">
-              <label class="sr-only" for="mobilePhone">Mobile Phone</label>
-              <input type="tel" class="form-control" id="mobilePhone" placeholder="Mobile Phone">
+              <label class="sr-only" for="mobilePhone">EMAIL</label>
+              <input type="tel" class="form-control" id="mobilePhone" placeholder="email">
             </div>
             <button type="submit" class="btn btn-primary" data-dismiss="modal">Send me link</button>
           </form>
@@ -103,13 +103,10 @@
     <div="row">
     <div class="col-xs-6">
       <i class="fa fa-instagram fa-5x"></i>
-      <h3>Instagram</h3>
       <div id="results"></div>
     </div>
       <div class="col-xs-6">
         <i class="fa fa-twitter fa-5x"></i>
-        <h3>Tweets</h3>
-        <p>This is where the Tweets go.</p>
       </div>
 
   </div>
