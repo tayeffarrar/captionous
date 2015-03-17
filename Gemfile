@@ -32,7 +32,7 @@ gem 'bootstrap-sass'
 
 gem 'rails_12factor', group: :production
 
-gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

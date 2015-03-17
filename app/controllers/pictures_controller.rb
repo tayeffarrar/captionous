@@ -2,8 +2,8 @@ class PicturesController < ApplicationController
 
 	def configure_instagram
 		Instagram.configure do |config|
-			config.client_id = Rails.application.secrets.instagram_client_id
-			config.client_secret = Rails.application.secrets.instagram_client_secret
+			config.client_id = ENV["instagram_client_id"]
+			config.client_secret = ENV["instagram_client_secret"]
 			@instagram_client = Instagram.client
 		end
 	end
