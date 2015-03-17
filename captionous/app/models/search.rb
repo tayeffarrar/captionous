@@ -1,5 +1,6 @@
 class Search < ActiveRecord::Base
 	has_many :pictures
+	has_many :captions
 
 	before_create: fetch_results
 
