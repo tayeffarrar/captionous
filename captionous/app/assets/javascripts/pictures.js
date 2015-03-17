@@ -44,6 +44,7 @@ function renderPicture(picture){
 function renderResults(pictures) {
 	var $results = $("#results")
 	$results.empty()
+	// $results.append("<h2>" + values.keyword + "</h2>")
 	pictures.forEach(function(picture){			
 		$results.append(renderPicture(picture));	
 	});

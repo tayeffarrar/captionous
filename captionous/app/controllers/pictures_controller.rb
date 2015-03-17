@@ -1,10 +1,10 @@
 class PicturesController < ApplicationController
 
-	def configure
+	def configure_instagram
 		Instagram.configure do |config|
 			config.client_id = Rails.application.secrets.instagram_client_id
 			config.client_secret = Rails.application.secrets.instagram_client_secret
-			@client = Instagram.client 
+			@instagram_client = Instagram.client 
 		end
 	end
 
@@ -24,9 +24,9 @@ class PicturesController < ApplicationController
 	end
 
 	def create
-		self.configure
+		self.configure_instagram
 
-		@results = @client.tag_recent_media(params[:keyword])
+		@results = @instagram_client.tag_recent_media(params[:keyword])
 		self.fetch_results
 		
 		respond_to do |format|
@@ -34,16 +34,19 @@ class PicturesController < ApplicationController
 		end
 	end
 
-	# def show
-	# 	self.configure
+	def show
+		self.configure_instagram
+		keywords = ["sunset", "nyc", "la", "london", "paris", "tokyo", "caribbean", "worldnews", "sunrise", "mountain", "landscape", "newyork", "sky", "clouds", "music", "forest", "river", "ocean", "carniva", "politics", "bbq", "food", "parade", "holiday", "technology", "tech", "dog", "dogs", "nature", "happy", "cinema", "movies", "redcarpet", "blue", "red", "yellow", "sun", "museum", "football", "art"]
+		keyword = keywords.sample
 		
-	# 	@results = @client.media_popular
-	# 	self.fetch_results
+		@results = @instagram_client.tag_recent_media(keyword)
+		self.fetch_results
 
-	# 	Pry.start(binding)
-	# 	respond_to do |format|
-	# 		format.json {render json: @data_array}
-	# 	end
-	# end
+		
+		respond_to do |format|
+			format.html
+			format.json {render json: @data_array}
+		end
+	end
 
 end
