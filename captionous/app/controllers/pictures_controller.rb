@@ -23,6 +23,11 @@ class PicturesController < ApplicationController
 		end
 	end
 
+	def generate_default
+		@defaults = ["sunset", "nyc", "la", "london", "paris", "tokyo", "caribbean", "worldnews", "sunrise", "mountain", "landscape", "newyork", "sky", "clouds", "music", "forest", "river", "ocean", "carniva", "politics", "bbq", "food", "parade", "holiday", "technology", "tech", "dog", "dogs", "nature", "happy", "cinema", "movies", "redcarpet", "blue", "red", "yellow", "sun", "museum", "football", "art"]
+		@default = @defaults.sample
+	end
+
 	def create
 		self.configure_instagram
 
@@ -35,11 +40,12 @@ class PicturesController < ApplicationController
 	end
 
 	def show
+		self.generate_default
 		self.configure_instagram
-		keywords = ["sunset", "nyc", "la", "london", "paris", "tokyo", "caribbean", "worldnews", "sunrise", "mountain", "landscape", "newyork", "sky", "clouds", "music", "forest", "river", "ocean", "carniva", "politics", "bbq", "food", "parade", "holiday", "technology", "tech", "dog", "dogs", "nature", "happy", "cinema", "movies", "redcarpet", "blue", "red", "yellow", "sun", "museum", "football", "art"]
-		keyword = keywords.sample
+
+		Pry.start(binding)
 		
-		@results = @instagram_client.tag_recent_media(keyword)
+		@results = @instagram_client.tag_recent_media(@default)
 		self.fetch_results
 
 		
