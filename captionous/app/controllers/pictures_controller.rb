@@ -43,7 +43,7 @@ class PicturesController < ApplicationController
 		self.generate_default
 		self.configure_instagram
 
-		Pry.start(binding)
+		# Pry.start(binding)
 		
 		@results = @instagram_client.tag_recent_media(@default)
 		self.fetch_results
