@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
 		Instagram.configure do |config|
 			config.client_id = Rails.application.secrets.instagram_client_id
 			config.client_secret = Rails.application.secrets.instagram_client_secret
-			@instagram_client = Instagram.client 
+			@instagram_client = Instagram.client
 		end
 	end
 
@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
 		@data_array = []
 		@instagram_results.each do |result|
 			@pictures_array << Picture.create!(
-				:url => result.images.standard_resolution.url, 
+				:url => result.images.standard_resolution.url,
 				:contributor => result.user[:username]
 			)
 		end
@@ -43,7 +43,7 @@ class PicturesController < ApplicationController
 
 		@instagram_results = @instagram_client.tag_recent_media(params[:keyword])
 		self.fetch_instagram_results
-		
+
 		respond_to do |format|
 			format.json {render json: @data_array}
 		end
@@ -52,16 +52,12 @@ class PicturesController < ApplicationController
 	def show_instagram
 		self.generate_default
 		self.configure_instagram
-<<<<<<< HEAD
 
-		# Pry.start(binding)
-=======
->>>>>>> bec7297fce2ea1f75aeff06268d11359d7ba79d2
-		
+
 		@instagram_results = @instagram_client.tag_recent_media(@default)
 		self.fetch_instagram_results
 
-		
+
 		respond_to do |format|
 			format.html
 			format.json {render json: @data_array}
